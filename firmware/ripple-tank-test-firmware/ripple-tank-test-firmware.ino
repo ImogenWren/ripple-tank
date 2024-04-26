@@ -22,8 +22,8 @@ void loop() {
 
   brightness_val = analogRead(BRIGHTNESS_PIN);
   strobe_val = analogRead(STROBE_PIN);
-  frequency_val = analogRead(FREQUENCY_PIN);
-
+  frequency_val = map(analogRead(FREQUENCY_PIN), 0, 1024, 32, 2000);
+  tone(SPEAKER_PIN, frequency_val);
   char buffer[64];
   sprintf(buffer, "brightness: %4u, strobe: %4u, frequency: %4u", brightness_val, strobe_val, frequency_val);
 
