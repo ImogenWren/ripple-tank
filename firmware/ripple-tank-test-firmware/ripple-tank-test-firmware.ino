@@ -25,6 +25,7 @@ autoDelay rippleDelay;
 void setup() {
   Serial.begin(115200);
   Serial.println("\nRipple Tank - Prototype\n");
+  TCCR1B = TCCR1B & B11111000 | B00000001; // for PWM frequency of 31372.55 Hz
   analogWrite(LED_PWM_PIN, 0);
   pinMode(LED_PWM_PIN, OUTPUT);
   pinMode(SPEAKER_PIN, OUTPUT);
